@@ -12,9 +12,18 @@ namespace Math3D
 {
     public partial class Form1 : Form
     {
+        Graphics graphics;
+        Bitmap bitmap;
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            bitmap = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
+            graphics = Graphics.FromImage(bitmap);
         }
     }
 }
