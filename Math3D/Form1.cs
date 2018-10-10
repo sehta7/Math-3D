@@ -12,13 +12,15 @@ namespace Math3D
 {
     public partial class Form1 : Form
     {
-        Graphics graphics;
-        Bitmap bitmap;
+        public Graphics graphics;
+        public Bitmap bitmap;
         Cube cube;
 
         public Form1()
         {
             InitializeComponent();
+            bitmap = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
+            graphics = Graphics.FromImage(bitmap);
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
@@ -36,6 +38,9 @@ namespace Math3D
             Camera camera = new Camera(cube.center.x, cube.center.z, ((cube.center.x * zoom) / cube.center.x));
 
             cube.count2D(camera, zoom, new PointF(pictureBox1.Size.Width / 2, pictureBox1.Size.Height / 2));
+
+            pictureBox1.Image = Drawing.drawingCube(cube, graphics, bitmap);
+            pictureBox1.Refresh();
         }
     }
 }
