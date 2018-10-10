@@ -10,7 +10,7 @@ namespace Math3D
     class Side
     {
         public Vector3D[] tops3d;
-        public PointF[] tops2d;
+        public PointF[] tops2d = new PointF[4];
 
         public Side(Vector3D[] tops3d)
         {
