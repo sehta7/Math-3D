@@ -123,5 +123,155 @@ namespace Math3D
                 bottom.tops2d[i].Y = ((camera.position.y - bottom.tops3d[i].y) / zValue * zoom) + drawCenter.Y;
             }
         }
+
+        public void xRotation(float degrees)
+        {
+            float cDegrees = degrees * (float)(Math.PI / 180.0);
+            float cosDegrees = (float)Math.Cos(cDegrees);
+            float sinDegrees = (float)Math.Sin(cDegrees);
+
+            //front
+            for (int i = 0; i < 4; i++)
+            {
+                front.tops3d[i].y = (front.tops3d[i].y * cosDegrees) + (front.tops3d[i].z * sinDegrees);
+                front.tops3d[i].z = (front.tops3d[i].y * -sinDegrees) + (front.tops3d[i].z * cosDegrees);
+            }
+
+            //back
+            for (int i = 0; i < 4; i++)
+            {
+                back.tops3d[i].y = (back.tops3d[i].y * cosDegrees) + (back.tops3d[i].z * sinDegrees);
+                back.tops3d[i].z = (back.tops3d[i].y * -sinDegrees) + (back.tops3d[i].z * cosDegrees);
+            }
+
+            //left
+            for (int i = 0; i < 4; i++)
+            {
+                left.tops3d[i].y = (left.tops3d[i].y * cosDegrees) + (left.tops3d[i].z * sinDegrees);
+                left.tops3d[i].z = (left.tops3d[i].y * -sinDegrees) + (left.tops3d[i].z * cosDegrees);
+            }
+
+            //right
+            for (int i = 0; i < 4; i++)
+            {
+                right.tops3d[i].y = (right.tops3d[i].y * cosDegrees) + (right.tops3d[i].z * sinDegrees);
+                right.tops3d[i].z = (right.tops3d[i].y * -sinDegrees) + (right.tops3d[i].z * cosDegrees);
+            }
+
+            //top
+            for (int i = 0; i < 4; i++)
+            {
+                top.tops3d[i].y = (top.tops3d[i].y * cosDegrees) + (top.tops3d[i].z * sinDegrees);
+                top.tops3d[i].z = (top.tops3d[i].y * -sinDegrees) + (top.tops3d[i].z * cosDegrees);
+            }
+
+            //bottom
+            for (int i = 0; i < 4; i++)
+            {
+                bottom.tops3d[i].y = (bottom.tops3d[i].y * cosDegrees) + (bottom.tops3d[i].z * sinDegrees);
+                bottom.tops3d[i].z = (bottom.tops3d[i].y * -sinDegrees) + (bottom.tops3d[i].z * cosDegrees);
+            }
+
+        }
+
+        public void yRotation(float degrees)
+        {
+            float cDegrees = degrees * (float)(Math.PI / 180.0);
+            float cosDegrees = (float)Math.Cos(cDegrees);
+            float sinDegrees = (float)Math.Sin(cDegrees);
+
+            //front
+            for (int i = 0; i < 4; i++)
+            {
+                front.tops3d[i].x = (front.tops3d[i].x * cosDegrees) + (front.tops3d[i].z * sinDegrees);
+                front.tops3d[i].z = (front.tops3d[i].x * -sinDegrees) + (front.tops3d[i].z * cosDegrees);
+            }
+
+            //back
+            for (int i = 0; i < 4; i++)
+            {
+                back.tops3d[i].x = (back.tops3d[i].x * cosDegrees) + (back.tops3d[i].z * sinDegrees);
+                back.tops3d[i].z = (back.tops3d[i].x * -sinDegrees) + (back.tops3d[i].z * cosDegrees);
+            }
+
+            //left
+            for (int i = 0; i < 4; i++)
+            {
+                left.tops3d[i].x = (left.tops3d[i].x * cosDegrees) + (left.tops3d[i].z * sinDegrees);
+                left.tops3d[i].z = (left.tops3d[i].x * -sinDegrees) + (left.tops3d[i].z * cosDegrees);
+            }
+
+            //right
+            for (int i = 0; i < 4; i++)
+            {
+                right.tops3d[i].x = (right.tops3d[i].x * cosDegrees) + (right.tops3d[i].z * sinDegrees);
+                right.tops3d[i].z = (right.tops3d[i].x * -sinDegrees) + (right.tops3d[i].z * cosDegrees);
+            }
+
+            //top
+            for (int i = 0; i < 4; i++)
+            {
+                top.tops3d[i].x = (top.tops3d[i].x * cosDegrees) + (top.tops3d[i].z * sinDegrees);
+                top.tops3d[i].z = (top.tops3d[i].x * -sinDegrees) + (top.tops3d[i].z * cosDegrees);
+            }
+
+            //bottom
+            for (int i = 0; i < 4; i++)
+            {
+                bottom.tops3d[i].x = (bottom.tops3d[i].x * cosDegrees) + (bottom.tops3d[i].z * sinDegrees);
+                bottom.tops3d[i].z = (bottom.tops3d[i].x * -sinDegrees) + (bottom.tops3d[i].z * cosDegrees);
+            }
+
+        }
+
+        public void zRotation(float degrees)
+        {
+            float cDegrees = degrees * (float)(Math.PI / 180.0);
+            float cosDegrees = (float)Math.Cos(cDegrees);
+            float sinDegrees = (float)Math.Sin(cDegrees);
+
+            //front
+            for (int i = 0; i < 4; i++)
+            {
+                front.tops3d[i].x = (front.tops3d[i].x * cosDegrees) + (front.tops3d[i].y * sinDegrees);
+                front.tops3d[i].y = (front.tops3d[i].x * -sinDegrees) + (front.tops3d[i].y * cosDegrees);
+            }
+
+            //back
+            for (int i = 0; i < 4; i++)
+            {
+                back.tops3d[i].x = (back.tops3d[i].x * cosDegrees) + (back.tops3d[i].y * sinDegrees);
+                back.tops3d[i].y = (back.tops3d[i].x * -sinDegrees) + (back.tops3d[i].y * cosDegrees);
+            }
+
+            //left
+            for (int i = 0; i < 4; i++)
+            {
+                left.tops3d[i].x = (left.tops3d[i].x * cosDegrees) + (left.tops3d[i].y * sinDegrees);
+                left.tops3d[i].y = (left.tops3d[i].x * -sinDegrees) + (left.tops3d[i].y * cosDegrees);
+            }
+
+            //right
+            for (int i = 0; i < 4; i++)
+            {
+                right.tops3d[i].x = (right.tops3d[i].x * cosDegrees) + (right.tops3d[i].y * sinDegrees);
+                right.tops3d[i].y = (right.tops3d[i].x * -sinDegrees) + (right.tops3d[i].y * cosDegrees);
+            }
+
+            //top
+            for (int i = 0; i < 4; i++)
+            {
+                top.tops3d[i].x = (top.tops3d[i].x * cosDegrees) + (top.tops3d[i].y * sinDegrees);
+                top.tops3d[i].y = (top.tops3d[i].x * -sinDegrees) + (top.tops3d[i].y * cosDegrees);
+            }
+
+            //bottom
+            for (int i = 0; i < 4; i++)
+            {
+                bottom.tops3d[i].x = (bottom.tops3d[i].x * cosDegrees) + (bottom.tops3d[i].y * sinDegrees);
+                bottom.tops3d[i].y = (bottom.tops3d[i].x * -sinDegrees) + (bottom.tops3d[i].y * cosDegrees);
+            }
+
+        }
     }
 }
