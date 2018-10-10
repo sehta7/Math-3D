@@ -15,6 +15,7 @@ namespace Math3D
         Graphics graphics;
         Bitmap bitmap;
         Cube cube;
+        Camera camera;
 
         public Form1()
         {
@@ -29,8 +30,16 @@ namespace Math3D
 
         private void button1_Click(object sender, EventArgs e)
         {
+            float zoom = (float)Screen.PrimaryScreen.Bounds.Width / 1.5f;
+
+            camera = new Camera();
+            camera.position.x = Int32.Parse(textBox1.Text) / 2;
+            camera.position.y = Int32.Parse(textBox2.Text) / 2;
+            camera.position.z = ((Int32.Parse(textBox1.Text) / 2) * zoom) / (Int32.Parse(textBox1.Text) / 2);
+
             cube = new Cube();
             cube.InitializeCube(Int32.Parse(textBox1.Text), Int32.Parse(textBox2.Text), Int32.Parse(textBox3.Text));
+            cube.count2D(camera, zoom, new PointF(pictureBox1.Size.Width / 2, pictureBox1.Size.Height / 2));
         }
     }
 }
