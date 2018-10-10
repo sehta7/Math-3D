@@ -14,6 +14,7 @@ namespace Math3D
     {
         Graphics graphics;
         Bitmap bitmap;
+        Cube cube;
 
         public Form1()
         {
@@ -24,6 +25,12 @@ namespace Math3D
         {
             bitmap = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
             graphics = Graphics.FromImage(bitmap);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cube = new Cube();
+            cube.InitializeCube(Int32.Parse(textBox1.Text), Int32.Parse(textBox2.Text), Int32.Parse(textBox3.Text));
         }
     }
 }
