@@ -1,0 +1,10 @@
+C:\Users\Olka\Documents\workspace visual studio\Math3D\Math3D\bin\Debug\Math3D.exe.config
+C:\Users\Olka\Documents\workspace visual studio\Math3D\Math3D\bin\Debug\Math3D.exe
+C:\Users\Olka\Documents\workspace visual studio\Math3D\Math3D\bin\Debug\Math3D.pdb
+C:\Users\Olka\Documents\workspace visual studio\Math3D\Math3D\obj\Debug\Math3D.csprojResolveAssemblyReference.cache
+C:\Users\Olka\Documents\workspace visual studio\Math3D\Math3D\obj\Debug\Math3D.Form1.resources
+C:\Users\Olka\Documents\workspace visual studio\Math3D\Math3D\obj\Debug\Math3D.Properties.Resources.resources
+C:\Users\Olka\Documents\workspace visual studio\Math3D\Math3D\obj\Debug\Math3D.csproj.GenerateResource.Cache
+C:\Users\Olka\Documents\workspace visual studio\Math3D\Math3D\obj\Debug\Math3D.csproj.CoreCompileInputs.cache
+C:\Users\Olka\Documents\workspace visual studio\Math3D\Math3D\obj\Debug\Math3D.exe
+C:\Users\Olka\Documents\workspace visual studio\Math3D\Math3D\obj\Debug\Math3D.pdb
