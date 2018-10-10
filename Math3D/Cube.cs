@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +16,13 @@ namespace Math3D
         public Side top;
         public Side bottom;
 
+        public Vector3D center;
+
         public void InitializeCube(int width, int height, int depth)
         {
+            //center
+            center = new Vector3D(width / 2, height / 2, depth / 2);
+
             //front
             Vector3D[] front = new Vector3D[4];
             front[0] = new Vector3D(width, height, 0);
@@ -64,6 +70,57 @@ namespace Math3D
             bottom[2] = new Vector3D(width, 0, 0);
             bottom[3] = new Vector3D(0, 0, 0);
             this.bottom = new Side(bottom);
+        }
+
+        public void count2D(Camera camera, float zoom, PointF drawCenter)
+        {
+            //fornt
+            for (int i = 0; i < 4; i++)
+            {
+                float zValue = - front.tops3d[i].z - camera.position.z;
+                front.tops2d[i].X = ((camera.position.x - front.tops3d[i].x) / zValue * zoom) + drawCenter.X;
+                front.tops2d[i].Y = ((camera.position.y - front.tops3d[i].y) / zValue * zoom) + drawCenter.Y;
+            }
+
+            //back
+            for (int i = 0; i < 4; i++)
+            {
+                float zValue = - back.tops3d[i].z - camera.position.z;
+                back.tops2d[i].X = ((camera.position.x - back.tops3d[i].x) / zValue * zoom) + drawCenter.X;
+                back.tops2d[i].Y = ((camera.position.y - back.tops3d[i].y) / zValue * zoom) + drawCenter.Y;
+            }
+
+            //left
+            for (int i = 0; i < 4; i++)
+            {
+                float zValue = - left.tops3d[i].z - camera.position.z;
+                left.tops2d[i].X = ((camera.position.x - left.tops3d[i].x) / zValue * zoom) + drawCenter.X;
+                left.tops2d[i].Y = ((camera.position.y - left.tops3d[i].y) / zValue * zoom) + drawCenter.Y;
+            }
+
+            //right
+            for (int i = 0; i < 4; i++)
+            {
+                float zValue = - right.tops3d[i].z - camera.position.z;
+                right.tops2d[i].X = ((camera.position.x - right.tops3d[i].x) / zValue * zoom) + drawCenter.X;
+                right.tops2d[i].Y = ((camera.position.y - right.tops3d[i].y) / zValue * zoom) + drawCenter.Y;
+            }
+
+            //top
+            for (int i = 0; i < 4; i++)
+            {
+                float zValue = - top.tops3d[i].z - camera.position.z;
+                top.tops2d[i].X = ((camera.position.x - top.tops3d[i].x) / zValue * zoom) + drawCenter.X;
+                top.tops2d[i].Y = ((camera.position.y - top.tops3d[i].y) / zValue * zoom) + drawCenter.Y;
+            }
+
+            //bottom
+            for (int i = 0; i < 4; i++)
+            {
+                float zValue = - bottom.tops3d[i].z - camera.position.z;
+                bottom.tops2d[i].X = ((camera.position.x - bottom.tops3d[i].x) / zValue * zoom) + drawCenter.X;
+                bottom.tops2d[i].Y = ((camera.position.y - bottom.tops3d[i].y) / zValue * zoom) + drawCenter.Y;
+            }
         }
     }
 }
