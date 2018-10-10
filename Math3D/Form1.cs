@@ -12,8 +12,8 @@ namespace Math3D
 {
     public partial class Form1 : Form
     {
-        public Graphics graphics;
-        public Bitmap bitmap;
+        Graphics graphics;
+        Bitmap bitmap;
         Cube cube;
 
         public Form1()
@@ -25,12 +25,25 @@ namespace Math3D
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            bitmap = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
-            graphics = Graphics.FromImage(bitmap);
+            float zoom = (float)Screen.PrimaryScreen.Bounds.Width / 1.5f;
+
+            Cube cubeInit = new Cube();
+            cubeInit.InitializeCube(100, 100, 100);
+            Camera camera = new Camera(cubeInit.center.x, cubeInit.center.z, ((cubeInit.center.x * zoom) / cubeInit.center.x));
+
+            cubeInit.count2D(camera, zoom, new PointF(pictureBox1.Size.Width / 2, pictureBox1.Size.Height / 2));
+
+            pictureBox1.Image = Drawing.drawingCube(cubeInit, graphics, bitmap);
+            pictureBox1.Refresh();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            pictureBox1.Image = null;
+            graphics.Clear(Color.WhiteSmoke);
+            pictureBox1.Image = bitmap;
+            pictureBox1.Refresh();
+
             float zoom = (float)Screen.PrimaryScreen.Bounds.Width / 1.5f;
 
             cube = new Cube();
@@ -39,7 +52,8 @@ namespace Math3D
 
             cube.count2D(camera, zoom, new PointF(pictureBox1.Size.Width / 2, pictureBox1.Size.Height / 2));
 
-            pictureBox1.Image = Drawing.drawingCube(cube, graphics, bitmap);
+            bitmap = Drawing.drawingCube(cube, graphics, bitmap);
+            pictureBox1.Image = bitmap;
             pictureBox1.Refresh();
         }
     }
